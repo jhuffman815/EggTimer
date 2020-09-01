@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
     
-    let eggTimes = ["Soft": 300, "Medium": 420, "Hard": 720]
+    let eggTimes = ["Soft": 5, "Medium": 420, "Hard": 720]
     
     var secondsRemaining = 60
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         else {
             timer.invalidate()
             timerLabel.text = "DONE!"
-            playSound(soundName: "alarm")
+            playSound(soundName: "alarm_sound")
         }
     }
     
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     func playSound(soundName: String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+        let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
                 
